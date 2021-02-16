@@ -8,7 +8,7 @@ void main() {
   final pid = 5588;
 
   // Instantiate the object representing our process.
-  final process = Win32Process(pid: pid);
+  final process = Win32Process(pid);
 
   // Suspend the process.
   process.suspend();

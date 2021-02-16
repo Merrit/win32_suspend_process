@@ -19,7 +19,7 @@ void main() {
   });
 
   test('Can instantiate Win32Process', () {
-    final process = Win32Process(pid: 0000);
+    final process = Win32Process(0000);
     expect(process.runtimeType, Win32Process);
   });
 }

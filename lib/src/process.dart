@@ -1,8 +1,5 @@
 /// Simple dart code to suspend and resume processes on Microsoft Windows.
 
-// Standard Library
-import 'package:meta/meta.dart';
-
 // Third-Party Packages
 import 'package:win32/src/kernel32.dart';
 import 'package:win32/win32.dart';
@@ -22,7 +19,7 @@ import 'ntdll.dart';
 /// process.suspend();
 /// ```
 class Win32Process {
-  Win32Process({@required this.pid})
+  Win32Process(this.pid)
       : processHandle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pid);
 
   final int pid;
