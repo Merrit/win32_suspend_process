@@ -6,7 +6,7 @@ processes on the Windows platform from native dart code.
 To suspend:
 
 ```dart
-final process = Win32Process(pid: $pid);
+final process = Win32Process($pid);
 
 process.suspend();
 ```
