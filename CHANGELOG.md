@@ -1,3 +1,7 @@
+# 0.1.3
+
+- Downgrade dependencies until null safety hits stable
+
 # 0.1.2
 
 - Update dart SDK version
