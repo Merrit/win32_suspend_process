@@ -1,3 +1,7 @@
+# 1.0.0-beta.1
+
+- Prerelease version with updated dependencies, using dart sdk with null safety beta.
+
 # 0.1.3
 
 - Downgrade dependencies until null safety hits stable
