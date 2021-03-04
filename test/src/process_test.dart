@@ -4,8 +4,8 @@ import 'package:win32_suspend_process/src/process.dart';
 
 void main() {
   test('Can instantiate Win32Process', () {
-    var pid = io.pid;
-    var process = Win32Process(pid);
+    final pid = io.pid;
+    final process = Win32Process(pid);
     expect(process, isA<Win32Process>());
   });
 }

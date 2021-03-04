@@ -17,9 +17,9 @@ import 'ntdll.dart';
 /// #### Example
 ///
 /// ```dart
-/// var process = Win32Process([pid]);
+/// final process = Win32Process([pid]);
 ///
-/// var result = process.suspend();
+/// final result = process.suspend();
 ///
 /// if (result != true) {
 ///   // Handle error.
@@ -38,14 +38,14 @@ class Win32Process {
   /// Returns true if the process was successfully suspended,
   /// returns false if it failed.
   bool suspend() {
-    var result = NtSuspendProcess(processHandle);
+    final result = NtSuspendProcess(processHandle);
     return (result == 0) ? true : false;
   }
 
   /// Returns true if the process was successfully resumed,
   /// returns false if it failed.
   bool resume() {
-    var result = NtResumeProcess(processHandle);
+    final result = NtResumeProcess(processHandle);
     return (result == 0) ? true : false;
   }
 }
