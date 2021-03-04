@@ -9,24 +9,37 @@ import 'ntdll.dart';
 
 /// Suspend or resume processes on Microsoft Windows.
 ///
-/// Pass in the process id number and then call `suspend()` or `resume()`.
+/// Pass in the process id number when instantiating this object,
+/// then call the `suspend()` or `resume()` methods.
+///
+/// Returns true if successful, false if the call failed.
 ///
 /// #### Example
 ///
 /// ```dart
 /// var process = Win32Process([pid]);
 ///
-/// process.suspend();
+/// var result = process.suspend();
+///
+/// if (result != true) {
+///   // Handle error.
+/// }
 /// ```
 class Win32Process {
   Win32Process(this.pid)
-      : processHandle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pid);
+      : processHandle = OpenProcess(PROCESS_SUSPEND_RESUME, FALSE, pid);
 
   final int pid;
 
   final int processHandle;
 
-  void suspend() => NtSuspendProcess(processHandle);
+  bool suspend() {
+    var result = NtSuspendProcess(processHandle);
+    return (result == 0) ? true : false;
+  }
 
-  void resume() => NtResumeProcess(processHandle);
+  bool resume() {
+    var result = NtResumeProcess(processHandle);
+    return (result == 0) ? true : false;
+  }
 }

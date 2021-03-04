@@ -11,13 +11,19 @@ void main() {
   final process = Win32Process(pid);
 
   // Suspend the process.
-  process.suspend();
+  final suspended = process.suspend();
+  if (!suspended) {
+    // Error handling.
+  }
   print('Process suspended.\nWaiting 10 seconds.');
 
   // Give a chance to see the process is suspended / unresponsive.
   sleep(Duration(seconds: 10));
 
   // Resume the process.
-  process.resume();
+  final resumed = process.resume();
+  if (!resumed) {
+    // Error handling.
+  }
   print('Process resumed.');
 }

@@ -15,16 +15,22 @@ void main() {
   final pid = 5588;
 
   // Get the handle to the process.
-  final processHandle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pid);
+  final processHandle = OpenProcess(PROCESS_SUSPEND_RESUME, FALSE, pid);
 
   // Suspend the process.
-  NtSuspendProcess(processHandle);
+  final suspended = NtSuspendProcess(processHandle);
+  if (suspended != 0) {
+    // Error handling.
+  }
   print('Process suspended.\nWaiting 10 seconds.');
 
   // Give a chance to see the process is suspended / unresponsive.
   sleep(Duration(seconds: 10));
 
   // Resume the process.
-  NtResumeProcess(processHandle);
+  final resumed = NtResumeProcess(processHandle);
+  if (resumed != 0) {
+    // Error handling.
+  }
   print('Process resumed.');
 }
