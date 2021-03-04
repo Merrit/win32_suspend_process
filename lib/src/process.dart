@@ -29,15 +29,21 @@ class Win32Process {
   Win32Process(this.pid)
       : processHandle = OpenProcess(PROCESS_SUSPEND_RESUME, FALSE, pid);
 
+  /// The process id of the process to be acted on.
   final int pid;
 
+  /// The win32 process handle.
   final int processHandle;
 
+  /// Returns true if the process was successfully suspended,
+  /// returns false if it failed.
   bool suspend() {
     var result = NtSuspendProcess(processHandle);
     return (result == 0) ? true : false;
   }
 
+  /// Returns true if the process was successfully resumed,
+  /// returns false if it failed.
   bool resume() {
     var result = NtResumeProcess(processHandle);
     return (result == 0) ? true : false;
