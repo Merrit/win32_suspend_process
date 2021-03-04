@@ -8,16 +8,22 @@ To suspend:
 ```dart
 final process = Win32Process($pid);
 
-process.suspend();
+final bool suspended = process.suspend();
+
+if (!suspended) {
+    // Handle failure.
+}
 ```
 
 Then resume:
 
 ```dart
-process.resume();
+final bool resumed = process.resume();
+
+if (!resumed) {
+    // Handle failure.
+}
 ```
 
-The underlying Windows API supplies no return or confirmation, therefore these methods
-do not either.
 
 Further examples are provided in the examples directory.
