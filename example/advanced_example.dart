@@ -33,4 +33,7 @@ void main() {
     // Error handling.
   }
   print('Process resumed.');
+
+  // Release the handle to the process.
+  CloseHandle(processHandle);
 }

@@ -26,26 +26,26 @@ import 'ntdll.dart';
 /// }
 /// ```
 class Win32Process {
-  Win32Process(this.pid)
-      : processHandle = OpenProcess(PROCESS_SUSPEND_RESUME, FALSE, pid);
+  Win32Process(this.pid);
 
   /// The process id of the process to be acted on.
   final int pid;
 
-  /// The win32 process handle.
-  final int processHandle;
-
   /// Returns true if the process was successfully suspended,
   /// returns false if it failed.
   bool suspend() {
+    final processHandle = OpenProcess(PROCESS_SUSPEND_RESUME, FALSE, pid);
     final result = NtSuspendProcess(processHandle);
+    CloseHandle(processHandle);
     return (result == 0) ? true : false;
   }
 
   /// Returns true if the process was successfully resumed,
   /// returns false if it failed.
   bool resume() {
+    final processHandle = OpenProcess(PROCESS_SUSPEND_RESUME, FALSE, pid);
     final result = NtResumeProcess(processHandle);
+    CloseHandle(processHandle);
     return (result == 0) ? true : false;
   }
 }
