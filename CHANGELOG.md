@@ -1,3 +1,10 @@
+# 1.0.0-beta.2
+
+- Add return values, confirm success or failure
+- Add doc comments
+- Ensure process handle is closed after use
+- Misc cleanup
+
 # 1.0.0-beta.1
 
 - Prerelease version with updated dependencies, using dart sdk with null safety beta.

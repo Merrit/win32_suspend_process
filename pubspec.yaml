@@ -1,7 +1,7 @@
 name: win32_suspend_process
 description: >-
   Suspend and resume processes on the Windows platform from native dart code.
-version: 1.0.0-beta.1
+version: 1.0.0-beta.2
 homepage: https://github.com/Merrit/win32_suspend_process
 repository: https://github.com/Merrit/win32_suspend_process
 environment:
