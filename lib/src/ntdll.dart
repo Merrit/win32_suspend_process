@@ -5,29 +5,29 @@ import 'dart:ffi';
 final _ntdll = DynamicLibrary.open('ntdll.dll');
 
 /// The undocumented NtResumeProcess function accepts a process handle and
-/// resumes that process.
+/// resumes that process. Return value is 0 for success, non-zero for failure.
 ///
 /// ```c
-/// void NtResumeProcess(
+/// BOOL NtResumeProcess(
 ///  HWND hWnd
 /// );
 /// ```
-void NtResumeProcess(int hWnd) {
-  final _NtResumeProcess = _ntdll.lookupFunction<Void Function(IntPtr hWnd),
-      void Function(int hWnd)>('NtResumeProcess');
+int NtResumeProcess(int hWnd) {
+  final _NtResumeProcess = _ntdll.lookupFunction<Int32 Function(IntPtr hWnd),
+      int Function(int hWnd)>('NtResumeProcess');
   return _NtResumeProcess(hWnd);
 }
 
 /// The undocumented NtSuspendProcess function accepts a process handle and
-/// suspends that process.
+/// suspends that process. Return value is 0 for success, non-zero for failure.
 ///
 /// ```c
-/// void NtSuspendProcess(
+/// BOOL NtSuspendProcess(
 ///  HWND hWnd
 /// );
 /// ```
-void NtSuspendProcess(int hWnd) {
-  final _NtSuspendProcess = _ntdll.lookupFunction<Void Function(IntPtr hWnd),
-      void Function(int hWnd)>('NtSuspendProcess');
+int NtSuspendProcess(int hWnd) {
+  final _NtSuspendProcess = _ntdll.lookupFunction<Int32 Function(IntPtr hWnd),
+      int Function(int hWnd)>('NtSuspendProcess');
   return _NtSuspendProcess(hWnd);
 }
