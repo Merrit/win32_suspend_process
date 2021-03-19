@@ -1,3 +1,7 @@
+# 1.0.0-nullsafety.0
+
+- Update SDK & dependencies to null safety stable
+
 # 1.0.0-beta.2
 
 - Add return values, confirm success or failure
