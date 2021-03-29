@@ -1,3 +1,7 @@
+# 1.0.0
+
+- Stable release with null safety
+
 # 1.0.0-nullsafety.0
 
 - Update SDK & dependencies to null safety stable
