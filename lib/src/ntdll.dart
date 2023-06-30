@@ -1,5 +1,7 @@
 /// Map undocumented win32 API for suspend and resume process to dart code.
 
+// ignore_for_file: non_constant_identifier_names
+
 import 'dart:ffi';
 
 final _ntdll = DynamicLibrary.open('ntdll.dll');
@@ -13,9 +15,9 @@ final _ntdll = DynamicLibrary.open('ntdll.dll');
 /// );
 /// ```
 int NtResumeProcess(int hWnd) {
-  final _NtResumeProcess = _ntdll.lookupFunction<Int32 Function(IntPtr hWnd),
-      int Function(int hWnd)>('NtResumeProcess');
-  return _NtResumeProcess(hWnd);
+  final ntResumeProcessNativeFunction = _ntdll.lookupFunction<
+      Int32 Function(IntPtr hWnd), int Function(int hWnd)>('NtResumeProcess');
+  return ntResumeProcessNativeFunction(hWnd);
 }
 
 /// The undocumented NtSuspendProcess function accepts a process handle and
@@ -27,7 +29,7 @@ int NtResumeProcess(int hWnd) {
 /// );
 /// ```
 int NtSuspendProcess(int hWnd) {
-  final _NtSuspendProcess = _ntdll.lookupFunction<Int32 Function(IntPtr hWnd),
-      int Function(int hWnd)>('NtSuspendProcess');
-  return _NtSuspendProcess(hWnd);
+  final ntSuspendProcessNativeFunction = _ntdll.lookupFunction<
+      Int32 Function(IntPtr hWnd), int Function(int hWnd)>('NtSuspendProcess');
+  return ntSuspendProcessNativeFunction(hWnd);
 }

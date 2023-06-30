@@ -6,16 +6,16 @@ import 'package:win32_suspend_process/src/process.dart';
 void main() {
   test('Can instantiate NtResumeProcess', () {
     final ntdll = DynamicLibrary.open('ntdll.dll');
-    final NtResumeProcess = ntdll.lookupFunction<Void Function(IntPtr hWnd),
+    final ntResumeProcess = ntdll.lookupFunction<Void Function(IntPtr hWnd),
         void Function(int hWnd)>('NtResumeProcess');
-    expect(NtResumeProcess, isA<Function>());
+    expect(ntResumeProcess, isA<Function>());
   });
 
   test('Can instantiate NtSuspendProcess', () {
     final ntdll = DynamicLibrary.open('ntdll.dll');
-    final NtSuspendProcess = ntdll.lookupFunction<Void Function(IntPtr hWnd),
+    final ntSuspendProcess = ntdll.lookupFunction<Void Function(IntPtr hWnd),
         void Function(int hWnd)>('NtSuspendProcess');
-    expect(NtSuspendProcess, isA<Function>());
+    expect(ntSuspendProcess, isA<Function>());
   });
 
   test('Can instantiate Win32Process', () {
