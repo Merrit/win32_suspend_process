@@ -1,3 +1,8 @@
+# 1.1.0
+
+- Upgraded sdk constraints for Dart 3
+- Upgraded dependencies to the latest versions
+
 # 1.0.0
 
 - Stable release with null safety
