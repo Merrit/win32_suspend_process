@@ -4,7 +4,6 @@
 
 import 'dart:io';
 
-import 'package:win32/src/kernel32.dart';
 import 'package:win32/win32.dart';
 
 import 'package:win32_suspend_process/win32_suspend_process.dart';

@@ -4,10 +4,13 @@ description: >-
 version: 1.0.0
 homepage: https://github.com/Merrit/win32_suspend_process
 repository: https://github.com/Merrit/win32_suspend_process
+
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: ">=3.0.0 <4.0.0"
+
 dependencies:
-  win32: ^2.0.4
+  win32: ^5.0.5
+
 dev_dependencies:
-  pedantic: ^1.11.0
+  lints: ^2.1.1
   test: ^1.16.8
